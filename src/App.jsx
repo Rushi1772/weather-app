@@ -118,7 +118,7 @@ export default function App() {
       const currentRes = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
           targetCity
-        )},CA&appid=${apiKey}&units=${unit}&lang=en`
+        )}&appid=${apiKey}&units=${unit}&lang=en`
       );
 
       const currentData = await currentRes.json();
@@ -130,7 +130,7 @@ export default function App() {
       const forecastRes = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
           targetCity
-        )},CA&appid=${apiKey}&units=${unit}&lang=en`
+        )}&appid=${apiKey}&units=${unit}&lang=en`
       );
 
       const forecastData = await forecastRes.json();
@@ -207,7 +207,7 @@ export default function App() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search city in Canada, e.g. Toronto"
+            placeholder="Search city, e.g. Toronto, Karachi, Mumbai"
             className="rounded-2xl border border-slate-200 px-4 py-3 text-base outline-none transition focus:border-blue-500"
           />
           <button
